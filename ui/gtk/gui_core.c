@@ -723,10 +723,10 @@ static int gui_run(const char *optional_command)
 
 static void gui_set_title(const char *title)
 {
-    char atitle[80];
+    char atitle[128];
 
-    snprintf(atitle,80,"cardpeek: %s",title);
-    atitle[79]=0;
+    snprintf(atitle, sizeof(atitle), "Cardpeek Plus by @clonedbins on IG potato chat: %s", title);
+    atitle[sizeof(atitle) - 1] = 0;
     gtk_window_set_title(GTK_WINDOW(MAIN_WINDOW),atitle);
 }
 
